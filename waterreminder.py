@@ -19,26 +19,26 @@ future_time = time.struct_time((year, month, day, hour, minute, second, 0, 0, -1
 drink = "It's time to drink water."
 
 #helps to convert alarm time to seconds from time module to retrieve the alarm time in seconds since the Unix epoch (January 1, 1970).
-epoch = time.mktime(future_time)
+future_epoch = time.mktime(future_time)
 
 #The code uses the time module to retrieve the current time in seconds since the Unix epoch (January 1, 1970)
 current_epoch = time.time()
 
 #Getting time string from seconds
-curr = time.ctime(current_epoch)
+current = time.ctime(current_epoch)
 
 #calculating the time till code have to got in sleep
-time_to_sleep = epoch - current_epoch
+time_to_sleep = future_epoch - current_epoch
 
 #getting time string of the alarm from seconds
-future = time.ctime(epoch)
+future = time.ctime(future_epoch)
 
-print(f"Alarm set from {curr} to {future}")
+print(f"Alarm set from {current} to {future}")
 
 #using a while loop to execute the alarm process
-while(time.time() != epoch ):
+while(time.time() != future_epoch ):
     time.sleep(time_to_sleep)
-    if time.time() != epoch:
+    if time.time() != future_epoch:
         break
 
 #creating a computer speaker for the alarm
