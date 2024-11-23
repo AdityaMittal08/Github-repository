@@ -76,7 +76,7 @@ def game():
 
             # creating a loop to show results using enumerate()
 
-            for i, r in enumerate(results):
+            for i, r in enumerate(results, start=1):
                 print(f"Round {i}: {r}")
 
             break
