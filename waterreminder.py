@@ -2,6 +2,8 @@ import time
 
 from win32com.client import Dispatch
 
+from win10toast import ToastNotifier
+
 print("Enter the time you want to set a reminder")
 
 year = int(input("Enter the year (e.g., 2030): "))
@@ -45,3 +47,9 @@ while(time.time() != future_epoch ):
 speak = Dispatch("SAPI.Spvoice")
 speak.Speak(drink)
 print(drink)
+
+#gives a desktop notification in windows
+n = ToastNotifier()
+
+n.show_toast("Hey There", "It's time to drink water", duration = 10, 
+icon_path = None)
